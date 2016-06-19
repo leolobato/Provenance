@@ -217,6 +217,27 @@
 		378F4A151B63F2240065FA39 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 378F4A141B63F2240065FA39 /* Reachability.m */; };
 		423BB97B17DD35B10048F457 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 423BB97A17DD35B10048F457 /* AssetsLibrary.framework */; };
 		423BB97F17DD46BC0048F457 /* NSData+Hashing.m in Sources */ = {isa = PBXBuildFile; fileRef = 423BB97E17DD46BC0048F457 /* NSData+Hashing.m */; };
+		424AF62C1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */; };
+		424AF62D1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */; };
+		424AF62E1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */; };
+		42AAFC861D1706E800A81366 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC851D1706E800A81366 /* main.m */; };
+		42AAFC891D1706E800A81366 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC881D1706E800A81366 /* AppDelegate.m */; };
+		42AAFC8C1D1706E800A81366 /* PVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC8B1D1706E800A81366 /* PVMainViewController.m */; };
+		42AAFC8F1D1706E800A81366 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AAFC8D1D1706E800A81366 /* Main.storyboard */; };
+		42AAFC911D1706E800A81366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AAFC901D1706E800A81366 /* Assets.xcassets */; };
+		42AAFC941D1706E800A81366 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AAFC921D1706E800A81366 /* LaunchScreen.storyboard */; };
+		42AAFC9C1D1707AB00A81366 /* PVControllerLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */; };
+		42AAFC9D1D1707AB00A81366 /* PVControllerLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */; };
+		42AAFC9E1D1707AB00A81366 /* PVControllerLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */; };
+		42AAFC9F1D1707AF00A81366 /* PVControllerLayoutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */; };
+		42AAFCA21D170F2A00A81366 /* libPVSupport.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 42AAFCA01D170E0500A81366 /* libPVSupport.a */; };
+		42AAFCA31D1710C700A81366 /* JSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47C96217BC310700C27644 /* JSButton.m */; };
+		42AAFCA41D1710CA00A81366 /* JSDPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A47C96417BC310700C27644 /* JSDPad.m */; };
+		42AAFCA51D1710E700A81366 /* PVEmulatorConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = BE1E26661C2252CA00499BA0 /* PVEmulatorConstants.m */; };
+		42AAFCA61D1710EF00A81366 /* PVButtonGroupOverlayView.m in Sources */ = {isa = PBXBuildFile; fileRef = 1ACD487617BEEABC0053407A /* PVButtonGroupOverlayView.m */; };
+		42AAFCA81D17115600A81366 /* systems.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1A34C58517D517760058E7D1 /* systems.plist */; };
+		42AAFCAB1D1712B000A81366 /* PVRemoteControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFCAA1D1712B000A81366 /* PVRemoteControllerViewController.m */; };
+		42AAFCAC1D1712EC00A81366 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1A1F0B6719CC4EB000764BE6 /* Assets.xcassets */; };
 		42BC83A917E6775E00E9A607 /* PVGameLibrarySectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 42BC83A817E6775E00E9A607 /* PVGameLibrarySectionHeaderView.m */; };
 		42E63AE917E12ECE00FE7098 /* PVSNESControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E63AE817E12ECE00FE7098 /* PVSNESControllerViewController.m */; };
 		42E63F0617DE78AB005802B0 /* UIImage+Scaling.m in Sources */ = {isa = PBXBuildFile; fileRef = 42E63F0517DE78AB005802B0 /* UIImage+Scaling.m */; };
@@ -498,6 +519,23 @@
 		423BB97A17DD35B10048F457 /* AssetsLibrary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AssetsLibrary.framework; path = System/Library/Frameworks/AssetsLibrary.framework; sourceTree = SDKROOT; };
 		423BB97D17DD46BC0048F457 /* NSData+Hashing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Hashing.h"; sourceTree = "<group>"; };
 		423BB97E17DD46BC0048F457 /* NSData+Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hashing.m"; sourceTree = "<group>"; };
+		424AF62A1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVEmulatorSystemsConfiguration.h; sourceTree = "<group>"; };
+		424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVEmulatorSystemsConfiguration.m; sourceTree = "<group>"; };
+		42AAFC821D1706E800A81366 /* ProvenanceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProvenanceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		42AAFC851D1706E800A81366 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		42AAFC871D1706E800A81366 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		42AAFC881D1706E800A81366 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		42AAFC8A1D1706E800A81366 /* PVMainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PVMainViewController.h; sourceTree = "<group>"; };
+		42AAFC8B1D1706E800A81366 /* PVMainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PVMainViewController.m; sourceTree = "<group>"; };
+		42AAFC8E1D1706E800A81366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		42AAFC901D1706E800A81366 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		42AAFC931D1706E800A81366 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		42AAFC951D1706E800A81366 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42AAFC9A1D1707AB00A81366 /* PVControllerLayoutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVControllerLayoutViewController.h; sourceTree = "<group>"; };
+		42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVControllerLayoutViewController.m; sourceTree = "<group>"; };
+		42AAFCA01D170E0500A81366 /* libPVSupport.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPVSupport.a; path = "../../../../Library/Developer/Xcode/DerivedData/Provenance-epmkugxwxubgtpfkbrnxxetosrjc/Build/Products/Debug-iphonesimulator/libPVSupport.a"; sourceTree = "<group>"; };
+		42AAFCA91D1712B000A81366 /* PVRemoteControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRemoteControllerViewController.h; sourceTree = "<group>"; };
+		42AAFCAA1D1712B000A81366 /* PVRemoteControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRemoteControllerViewController.m; sourceTree = "<group>"; };
 		42BC83A717E6775E00E9A607 /* PVGameLibrarySectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVGameLibrarySectionHeaderView.h; sourceTree = "<group>"; };
 		42BC83A817E6775E00E9A607 /* PVGameLibrarySectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVGameLibrarySectionHeaderView.m; sourceTree = "<group>"; };
 		42E63AE717E12ECE00FE7098 /* PVSNESControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVSNESControllerViewController.h; sourceTree = "<group>"; };
@@ -616,6 +654,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		42AAFC7F1D1706E800A81366 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42AAFCA21D170F2A00A81366 /* libPVSupport.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BE9FDCB41C210B9E0046DF0E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -655,6 +701,8 @@
 				1A164EB217BC03E800FAC391 /* PVEmulatorViewController.m */,
 				1A3D433917B30BA2004DFFFC /* PVGLViewController.h */,
 				1A3D433A17B30BA3004DFFFC /* PVGLViewController.m */,
+				424AF62A1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.h */,
+				424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */,
 				1A34C58817D53C9B0058E7D1 /* PVEmulatorConfiguration.h */,
 				1A34C58917D53C9B0058E7D1 /* PVEmulatorConfiguration.m */,
 				BE1E26651C2252CA00499BA0 /* PVEmulatorConstants.h */,
@@ -696,6 +744,7 @@
 				1AD9AA361ACC988F00EC87A0 /* Provenance Tests */,
 				1AD481B51BA350A400FDA50A /* ProvenanceTV */,
 				BE9FDCBA1C210B9E0046DF0E /* TopShelf */,
+				42AAFC831D1706E800A81366 /* ProvenanceController */,
 				1A3D409617B2DCE4004DFFFC /* Frameworks */,
 				1AACCADD1BB60D8200DC21AE /* Realm-iOS */,
 				1AACCADF1BB60D8200DC21AE /* Realm-tvOS */,
@@ -710,6 +759,7 @@
 				1AD9AA351ACC988F00EC87A0 /* Provenance Tests.xctest */,
 				1AD481B41BA350A400FDA50A /* Provenance.app */,
 				BE9FDCB71C210B9E0046DF0E /* TopShelf.appex */,
+				42AAFC821D1706E800A81366 /* ProvenanceController.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -717,6 +767,7 @@
 		1A3D409617B2DCE4004DFFFC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				42AAFCA01D170E0500A81366 /* libPVSupport.a */,
 				1A4DF9F91C0E411500DDBC20 /* iOS */,
 				1A4DF9F81C0E40FE00DDBC20 /* tvOS */,
 				BE9FDCB81C210B9E0046DF0E /* TVServices.framework */,
@@ -777,6 +828,8 @@
 				1A47C96217BC310700C27644 /* JSButton.m */,
 				1A47C96317BC310700C27644 /* JSDPad.h */,
 				1A47C96417BC310700C27644 /* JSDPad.m */,
+				42AAFC9A1D1707AB00A81366 /* PVControllerLayoutViewController.h */,
+				42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1111,6 +1164,32 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
+		42AAFC831D1706E800A81366 /* ProvenanceController */ = {
+			isa = PBXGroup;
+			children = (
+				42AAFC871D1706E800A81366 /* AppDelegate.h */,
+				42AAFC881D1706E800A81366 /* AppDelegate.m */,
+				42AAFC8A1D1706E800A81366 /* PVMainViewController.h */,
+				42AAFC8B1D1706E800A81366 /* PVMainViewController.m */,
+				42AAFC8D1D1706E800A81366 /* Main.storyboard */,
+				42AAFC901D1706E800A81366 /* Assets.xcassets */,
+				42AAFC921D1706E800A81366 /* LaunchScreen.storyboard */,
+				42AAFC951D1706E800A81366 /* Info.plist */,
+				42AAFC841D1706E800A81366 /* Supporting Files */,
+				42AAFCA91D1712B000A81366 /* PVRemoteControllerViewController.h */,
+				42AAFCAA1D1712B000A81366 /* PVRemoteControllerViewController.m */,
+			);
+			path = ProvenanceController;
+			sourceTree = "<group>";
+		};
+		42AAFC841D1706E800A81366 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				42AAFC851D1706E800A81366 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		BE9FDCBA1C210B9E0046DF0E /* TopShelf */ = {
 			isa = PBXGroup;
 			children = (
@@ -1215,6 +1294,23 @@
 			productReference = 1AD9AA351ACC988F00EC87A0 /* Provenance Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		42AAFC811D1706E800A81366 /* ProvenanceController */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 42AAFC991D1706E800A81366 /* Build configuration list for PBXNativeTarget "ProvenanceController" */;
+			buildPhases = (
+				42AAFC7E1D1706E800A81366 /* Sources */,
+				42AAFC7F1D1706E800A81366 /* Frameworks */,
+				42AAFC801D1706E800A81366 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ProvenanceController;
+			productName = ProvenanceController;
+			productReference = 42AAFC821D1706E800A81366 /* ProvenanceController.app */;
+			productType = "com.apple.product-type.application";
+		};
 		BE9FDCB61C210B9E0046DF0E /* TopShelf */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BE9FDCC51C210B9F0046DF0E /* Build configuration list for PBXNativeTarget "TopShelf" */;
@@ -1284,6 +1380,7 @@
 			targets = (
 				1A3D409317B2DCE4004DFFFC /* Provenance */,
 				1AD481B31BA350A400FDA50A /* ProvenanceTV */,
+				42AAFC811D1706E800A81366 /* ProvenanceController */,
 				1AD9AA341ACC988F00EC87A0 /* Provenance Tests */,
 				BE9FDCB61C210B9E0046DF0E /* TopShelf */,
 			);
@@ -1327,6 +1424,18 @@
 			files = (
 				1A2B0E8C1AD187F4005FB77C /* testdata.txt in Resources */,
 				1AD9AA411ACC98A200EC87A0 /* systems.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42AAFC801D1706E800A81366 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42AAFC941D1706E800A81366 /* LaunchScreen.storyboard in Resources */,
+				42AAFC911D1706E800A81366 /* Assets.xcassets in Resources */,
+				42AAFC8F1D1706E800A81366 /* Main.storyboard in Resources */,
+				42AAFCA81D17115600A81366 /* systems.plist in Resources */,
+				42AAFCAC1D1712EC00A81366 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1379,6 +1488,7 @@
 				1A9FBE231ABD28DA004E778B /* PVGBAControllerViewController.m in Sources */,
 				1A26EE371AD9FFBF004EA30B /* SSZipArchive.m in Sources */,
 				E41448971B34C4080056D80A /* PViCadeGamepadButtonInput.m in Sources */,
+				42AAFC9C1D1707AB00A81366 /* PVControllerLayoutViewController.m in Sources */,
 				1A26EE341AD9FFBF004EA30B /* mztools.c in Sources */,
 				378F4A001B63D7CD0065FA39 /* GCDWebServer.m in Sources */,
 				1A3D40A817B2DCE4004DFFFC /* PVAppDelegate.m in Sources */,
@@ -1438,6 +1548,7 @@
 				1A48698317C8C1170019F6D2 /* NSString+Hashing.m in Sources */,
 				1A34C58A17D53C9B0058E7D1 /* PVEmulatorConfiguration.m in Sources */,
 				BE1E26671C2252CA00499BA0 /* PVEmulatorConstants.m in Sources */,
+				424AF62C1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */,
 				1AD9AA301ACC871F00EC87A0 /* PVGameImporter.m in Sources */,
 				1A4850BB1AE1A6C500F7EF2E /* PVConflictViewController.m in Sources */,
 				378F4A151B63F2240065FA39 /* Reachability.m in Sources */,
@@ -1479,6 +1590,7 @@
 				1AD481CE1BA353FE00FDA50A /* PVGameLibraryViewController.m in Sources */,
 				1AACCAEA1BB615FE00DC21AE /* PVSynchronousURLSession.m in Sources */,
 				1AD481FD1BA354B100FDA50A /* PViCadeReader.m in Sources */,
+				424AF62D1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */,
 				1AD482011BA354B100FDA50A /* kICadeControllerSetting.m in Sources */,
 				1AD481E31BA3545D00FDA50A /* GCDWebServerStreamedResponse.m in Sources */,
 				1AD482071BA354C400FDA50A /* PVNESControllerViewController.m in Sources */,
@@ -1500,6 +1612,7 @@
 				1AD481E11BA3545800FDA50A /* GCDWebServerErrorResponse.m in Sources */,
 				1AD481F71BA354A200FDA50A /* NSDate+NSDate_SignificantDates.m in Sources */,
 				1AD482091BA354C400FDA50A /* JSButton.m in Sources */,
+				42AAFC9D1D1707AB00A81366 /* PVControllerLayoutViewController.m in Sources */,
 				1AD482051BA354C400FDA50A /* PVGBAControllerViewController.m in Sources */,
 				1AD481EC1BA3548200FDA50A /* unzip.c in Sources */,
 				1AD481D71BA3543500FDA50A /* GCDWebServer.m in Sources */,
@@ -1549,7 +1662,25 @@
 				1AD9AA461ACC99B900EC87A0 /* PVControllerViewController.m in Sources */,
 				1AD9AA451ACC999700EC87A0 /* PVEmulatorConfiguration.m in Sources */,
 				1AD9AA4A1ACC99C900EC87A0 /* PVGBControllerViewController.m in Sources */,
+				42AAFC9F1D1707AF00A81366 /* PVControllerLayoutViewController.m in Sources */,
 				1AD9AA4B1ACC99C900EC87A0 /* PVNESControllerViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		42AAFC7E1D1706E800A81366 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				42AAFCA51D1710E700A81366 /* PVEmulatorConstants.m in Sources */,
+				42AAFCA61D1710EF00A81366 /* PVButtonGroupOverlayView.m in Sources */,
+				42AAFC9E1D1707AB00A81366 /* PVControllerLayoutViewController.m in Sources */,
+				42AAFC8C1D1706E800A81366 /* PVMainViewController.m in Sources */,
+				424AF62E1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */,
+				42AAFCA31D1710C700A81366 /* JSButton.m in Sources */,
+				42AAFC891D1706E800A81366 /* AppDelegate.m in Sources */,
+				42AAFC861D1706E800A81366 /* main.m in Sources */,
+				42AAFCA41D1710CA00A81366 /* JSDPad.m in Sources */,
+				42AAFCAB1D1712B000A81366 /* PVRemoteControllerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1597,6 +1728,22 @@
 				1AD481C01BA350A400FDA50A /* Base */,
 			);
 			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		42AAFC8D1D1706E800A81366 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42AAFC8E1D1706E800A81366 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		42AAFC921D1706E800A81366 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				42AAFC931D1706E800A81366 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -2151,6 +2298,124 @@
 			};
 			name = AdHoc;
 		};
+		42AAFC961D1706E800A81366 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/PVSupport/**";
+				INFOPLIST_FILE = ProvenanceController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILD_DIR)/**",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		42AAFC971D1706E800A81366 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/PVSupport/**";
+				INFOPLIST_FILE = ProvenanceController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILD_DIR)/**",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		42AAFC981D1706E800A81366 /* AdHoc */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/PVSupport/**";
+				INFOPLIST_FILE = ProvenanceController/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILD_DIR)/**",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = AdHoc;
+		};
 		BE9FDCC21C210B9F0046DF0E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2299,6 +2564,16 @@
 				1AD9AA3E1ACC988F00EC87A0 /* Debug */,
 				1AD9AA3F1ACC988F00EC87A0 /* Release */,
 				1AD9AA401ACC988F00EC87A0 /* AdHoc */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		42AAFC991D1706E800A81366 /* Build configuration list for PBXNativeTarget "ProvenanceController" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				42AAFC961D1706E800A81366 /* Debug */,
+				42AAFC971D1706E800A81366 /* Release */,
+				42AAFC981D1706E800A81366 /* AdHoc */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,0 +1,65 @@
+//
+//  PVControllerLayoutViewController.h
+//  Provenance
+//
+//  Created by Leonardo Lobato on 19/06/16.
+//  Copyright © 2016 James Addyman. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "JSDPad.h"
+#import "JSButton.h"
+
+@import GameController;
+
+extern NSString * const PVSavedDPadFrameKey;
+extern NSString * const PVSavedButtonFrameKey;
+extern NSString * const PVSavedControllerFramesKey;
+
+@class PVControllerViewController, PVEmulatorCore;
+
+typedef NS_ENUM(NSInteger, PVControllerButton) {
+    PVControllerButtonA,
+    PVControllerButtonB,
+    PVControllerButtonX,
+    PVControllerButtonY,
+    PVControllerButtonLeftShoulder,
+    PVControllerButtonRightShoulder,
+    PVControllerButtonLeftTrigger,
+    PVControllerButtonRightTrigger
+};
+
+@interface PVControllerLayoutViewController : UIViewController <JSDPadDelegate, JSButtonDelegate> {
+    
+}
+
+@property (nonatomic, strong) PVEmulatorCore *emulatorCore;
+@property (nonatomic, copy) NSString *systemIdentifier;
+@property (nonatomic, strong) JSDPad *dPad;
+@property (nonatomic, strong) UIView *buttonGroup;
+@property (nonatomic, strong) JSButton *leftShoulderButton;
+@property (nonatomic, strong) JSButton *rightShoulderButton;
+@property (nonatomic, strong) JSButton *startButton;
+@property (nonatomic, strong) JSButton *selectButton;
+
+- (id)initWithControlLayout:(NSArray *)controlLayout systemIdentifier:(NSString *)systemIdentifier;
+
+- (void)dPad:(JSDPad *)dPad didPressDirection:(JSDPadDirection)direction;
+- (void)dPadDidReleaseDirection:(JSDPad *)dPad;
+- (void)buttonPressed:(JSButton *)button;
+- (void)buttonReleased:(JSButton *)button;
+- (void)pressStartForPlayer:(NSUInteger)player;
+- (void)releaseStartForPlayer:(NSUInteger)player;
+- (void)pressSelectForPlayer:(NSUInteger)player;
+- (void)releaseSelectForPlayer:(NSUInteger)player;
+- (void)vibrate;
+
+
+// To override:
+
+@property (nonatomic, assign) CGFloat controllerOpacity;
+@property (nonatomic, assign) BOOL vibrationEnabled;
+
+- (void)hideTouchControls:(BOOL)hide forController:(GCController *)controller;
+
+@end

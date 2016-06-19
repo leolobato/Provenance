@@ -220,6 +220,9 @@
 		424AF62C1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */; };
 		424AF62D1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */; };
 		424AF62E1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = 424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */; };
+		424AF6351D1729D9004A4C0D /* VirtualGameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424AF6341D1729D9004A4C0D /* VirtualGameController.framework */; };
+		424AF6361D172A0F004A4C0D /* VirtualGameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424AF6341D1729D9004A4C0D /* VirtualGameController.framework */; };
+		424AF6371D172A0F004A4C0D /* VirtualGameController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 424AF6341D1729D9004A4C0D /* VirtualGameController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		42AAFC861D1706E800A81366 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC851D1706E800A81366 /* main.m */; };
 		42AAFC891D1706E800A81366 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC881D1706E800A81366 /* AppDelegate.m */; };
 		42AAFC8C1D1706E800A81366 /* PVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC8B1D1706E800A81366 /* PVMainViewController.m */; };
@@ -306,6 +309,17 @@
 			dstSubfolderSpec = 10;
 			files = (
 				1AAE7D431BC870A8003066C0 /* Realm.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		424AF6381D172A0F004A4C0D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				424AF6371D172A0F004A4C0D /* VirtualGameController.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -521,6 +535,7 @@
 		423BB97E17DD46BC0048F457 /* NSData+Hashing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hashing.m"; sourceTree = "<group>"; };
 		424AF62A1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVEmulatorSystemsConfiguration.h; sourceTree = "<group>"; };
 		424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVEmulatorSystemsConfiguration.m; sourceTree = "<group>"; };
+		424AF6341D1729D9004A4C0D /* VirtualGameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VirtualGameController.framework; path = Carthage/Build/iOS/VirtualGameController.framework; sourceTree = SOURCE_ROOT; };
 		42AAFC821D1706E800A81366 /* ProvenanceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProvenanceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AAFC851D1706E800A81366 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42AAFC871D1706E800A81366 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -536,6 +551,7 @@
 		42AAFCA01D170E0500A81366 /* libPVSupport.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPVSupport.a; path = "../../../../Library/Developer/Xcode/DerivedData/Provenance-epmkugxwxubgtpfkbrnxxetosrjc/Build/Products/Debug-iphonesimulator/libPVSupport.a"; sourceTree = "<group>"; };
 		42AAFCA91D1712B000A81366 /* PVRemoteControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVRemoteControllerViewController.h; sourceTree = "<group>"; };
 		42AAFCAA1D1712B000A81366 /* PVRemoteControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVRemoteControllerViewController.m; sourceTree = "<group>"; };
+		42AAFCB21D171B2B00A81366 /* VirtualGameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VirtualGameController.framework; path = Carthage/Build/tvOS/VirtualGameController.framework; sourceTree = SOURCE_ROOT; };
 		42BC83A717E6775E00E9A607 /* PVGameLibrarySectionHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVGameLibrarySectionHeaderView.h; sourceTree = "<group>"; };
 		42BC83A817E6775E00E9A607 /* PVGameLibrarySectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVGameLibrarySectionHeaderView.m; sourceTree = "<group>"; };
 		42E63AE717E12ECE00FE7098 /* PVSNESControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVSNESControllerViewController.h; sourceTree = "<group>"; };
@@ -658,7 +674,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				424AF6351D1729D9004A4C0D /* VirtualGameController.framework in Frameworks */,
 				42AAFCA21D170F2A00A81366 /* libPVSupport.a in Frameworks */,
+				424AF6361D172A0F004A4C0D /* VirtualGameController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1030,6 +1048,7 @@
 		1AD481B51BA350A400FDA50A /* ProvenanceTV */ = {
 			isa = PBXGroup;
 			children = (
+				42AAFCB11D171AD700A81366 /* Dependencies */,
 				BE9FDCCC1C21109B0046DF0E /* Provenance.entitlements */,
 				1AACCAEB1BB61D5600DC21AE /* PVTVSplitViewController.h */,
 				1AACCAEC1BB61D5600DC21AE /* PVTVSplitViewController.m */,
@@ -1171,6 +1190,7 @@
 				42AAFC881D1706E800A81366 /* AppDelegate.m */,
 				42AAFC8A1D1706E800A81366 /* PVMainViewController.h */,
 				42AAFC8B1D1706E800A81366 /* PVMainViewController.m */,
+				42AAFCAD1D1718E100A81366 /* Dependencies */,
 				42AAFC8D1D1706E800A81366 /* Main.storyboard */,
 				42AAFC901D1706E800A81366 /* Assets.xcassets */,
 				42AAFC921D1706E800A81366 /* LaunchScreen.storyboard */,
@@ -1188,6 +1208,22 @@
 				42AAFC851D1706E800A81366 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42AAFCAD1D1718E100A81366 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				424AF6341D1729D9004A4C0D /* VirtualGameController.framework */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		42AAFCB11D171AD700A81366 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				42AAFCB21D171B2B00A81366 /* VirtualGameController.framework */,
+			);
+			name = Dependencies;
 			sourceTree = "<group>";
 		};
 		BE9FDCBA1C210B9E0046DF0E /* TopShelf */ = {
@@ -1301,6 +1337,7 @@
 				42AAFC7E1D1706E800A81366 /* Sources */,
 				42AAFC7F1D1706E800A81366 /* Frameworks */,
 				42AAFC801D1706E800A81366 /* Resources */,
+				424AF6381D172A0F004A4C0D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -1339,11 +1376,11 @@
 				ORGANIZATIONNAME = "James Addyman";
 				TargetAttributes = {
 					1A3D409317B2DCE4004DFFFC = {
-						DevelopmentTeam = 63497P68S6;
+						DevelopmentTeam = 5Z876YNVCP;
 					};
 					1AD481B31BA350A400FDA50A = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 63497P68S6;
+						DevelopmentTeam = 5Z876YNVCP;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1354,9 +1391,12 @@
 						CreatedOnToolsVersion = 6.2;
 						TestTargetID = 1A3D409317B2DCE4004DFFFC;
 					};
+					42AAFC811D1706E800A81366 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					BE9FDCB61C210B9E0046DF0E = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 63497P68S6;
+						DevelopmentTeam = 5Z876YNVCP;
 						SystemCapabilities = {
 							com.apple.ApplicationGroups.iOS = {
 								enabled = 0;
@@ -1841,7 +1881,7 @@
 					"$(BUILD_DIR)/**",
 				);
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.Provenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1887,7 +1927,7 @@
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1 ";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.Provenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1917,6 +1957,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Realm-tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1944,7 +1985,7 @@
 					"$(BUILD_DIR)/**",
 				);
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamsoftonline.ProvenanceTV;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.ProvenanceTV;
 				PRODUCT_NAME = Provenance;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
@@ -1975,6 +2016,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Realm-tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2002,7 +2044,7 @@
 					"$(BUILD_DIR)/**",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamsoftonline.ProvenanceTV;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.ProvenanceTV;
 				PRODUCT_NAME = Provenance;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
@@ -2033,6 +2075,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 					"$(PROJECT_DIR)/Realm-tvOS",
+					"$(PROJECT_DIR)/Carthage/Build/tvOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -2060,7 +2103,7 @@
 					"$(BUILD_DIR)/**",
 				);
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamsoftonline.ProvenanceTV;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.ProvenanceTV;
 				PRODUCT_NAME = Provenance;
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
@@ -2117,7 +2160,7 @@
 					XCTest,
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lobato.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Provenance.app/Provenance";
 			};
@@ -2169,7 +2212,7 @@
 					XCTest,
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lobato.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Provenance.app/Provenance";
 			};
@@ -2221,7 +2264,7 @@
 					XCTest,
 					"-ObjC",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.lobato.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Provenance.app/Provenance";
 			};
@@ -2288,7 +2331,7 @@
 				);
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1 ";
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.jamsoftonline.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.Provenance;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -2310,10 +2353,10 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2323,7 +2366,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/PVSupport/**";
 				INFOPLIST_FILE = ProvenanceController/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2349,11 +2392,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2363,7 +2406,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/PVSupport/**";
 				INFOPLIST_FILE = ProvenanceController/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2389,11 +2432,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -2403,7 +2446,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				HEADER_SEARCH_PATHS = "$(SRCROOT)/PVSupport/**";
 				INFOPLIST_FILE = ProvenanceController/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2442,7 +2485,7 @@
 				INFOPLIST_FILE = TopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamsoftonline.ProvenanceTV.TopShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.ProvenanceTV.TopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
@@ -2479,7 +2522,7 @@
 				INFOPLIST_FILE = TopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamsoftonline.ProvenanceTV.TopShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.ProvenanceTV.TopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;
@@ -2516,7 +2559,7 @@
 				INFOPLIST_FILE = TopShelf/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamsoftonline.ProvenanceTV.TopShelf;
+				PRODUCT_BUNDLE_IDENTIFIER = org.lobato.ProvenanceTV.TopShelf;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				SDKROOT = appletvos;

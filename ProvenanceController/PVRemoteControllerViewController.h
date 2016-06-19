@@ -8,6 +8,11 @@
 
 #import "PVControllerLayoutViewController.h"
 
+@import VirtualGameController;
+@import GameController;
+
 @interface PVRemoteControllerViewController : PVControllerLayoutViewController
+
+@property (nonatomic, strong) Peripheral *peripheral;
 
 @end

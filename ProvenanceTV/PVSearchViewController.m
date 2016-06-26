@@ -210,7 +210,7 @@
 			[emulatorViewController setModalTransitionStyle:UIModalTransitionStyleCrossDissolve];
 
 			[self presentViewController:emulatorViewController animated:YES completion:NULL];
-			[[[PVControllerManager sharedManager] iCadeController] refreshListener];
+			[[PVControllerManager sharedManager] refreshiCadeControllerListener];
 			[self updateRecentGames:game];
 		}
 	};

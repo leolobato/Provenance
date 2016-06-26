@@ -79,6 +79,11 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
     return (self.player1) || (self.player2);
 }
 
+- (void)refreshiCadeControllerListener;
+{
+    [self.iCadeController refreshListener];
+}
+
 - (void)handleControllerDidConnect:(NSNotification *)note
 {
     GCController *controller = [note object];

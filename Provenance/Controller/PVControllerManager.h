@@ -23,4 +23,6 @@ extern NSString * const PVControllerManagerControllerReassignedNotification;
 
 - (BOOL)hasControllers;
 
+- (void)refreshiCadeControllerListener;
+
 @end

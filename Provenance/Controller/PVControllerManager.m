@@ -81,7 +81,7 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
 
 - (NSInteger)maxControllers;
 {
-    return 2;
+    return 4;
 }
 
 - (BOOL)hasControllers

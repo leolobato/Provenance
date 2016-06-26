@@ -189,8 +189,7 @@ NSString *SNESEmulatorKeys[] = { @"Up", @"Down", @"Left", @"Right", @"A", @"B", 
     S9xUnmapAllControls();
     [self mapButtons];
 
-    S9xSetController(0, CTL_JOYPAD, 0, 0, 0, 0);
-    S9xSetController(1, CTL_JOYPAD, 1, 0, 0, 0);
+    [self assignControllers];
 
     //S9xSetRenderPixelFormat(RGB565);
     if(!Memory.Init() || !S9xInitAPU() || !S9xGraphicsInit())
@@ -359,6 +358,52 @@ static void FinalizeSamplesAudioCallback(void *)
 }
 
 #pragma mark - Input
+
+- (void)setControllers:(NSArray *)controllers;
+{
+    [super setControllers:controllers];
+    
+    [self assignControllers];
+}
+
+- (void)assignControllers;
+{
+    if (self.controllers.count==0) {
+        // No controllers assigned. Use touch controls.
+        S9xSetController(0, CTL_JOYPAD, 0, 0, 0, 0);
+        S9xSetController(1, CTL_JOYPAD, 1, 0, 0, 0);
+
+    } else {
+        // Assign controllers
+        NSMutableDictionary *controllers = [[NSMutableDictionary alloc] init];
+        for (id<PVController> controller in self.controllers) {
+            NSNumber *player = [NSNumber numberWithInteger:[controller playerNumber]];
+            [controllers setObject:controller forKey:player];
+        }
+        
+        // Player 1
+        id<PVController> controller = [controllers objectForKey:@1];
+        [controllers removeObjectForKey:@1];
+        S9xSetController(0, (controller ? CTL_JOYPAD : CTL_NONE), 0, 0, 0, 0);
+        
+        // Player 2
+        controller = [controllers objectForKey:@2];
+        [controllers removeObjectForKey:@2];
+        
+        if (controllers.count>0) {
+            // There are still controllers to be assigned. Plug in a multitap on port 2.
+            BOOL player2 = controller != nil;
+            BOOL player3 = [controllers objectForKey:@3] != nil;
+            BOOL player4 = [controllers objectForKey:@4] != nil;
+            S9xSetController(1, CTL_MP5, (player2 ? 1 : -1), (player3 ? 2 : -1), (player4 ? 3 : -1), -1);
+            
+        } else {
+            S9xSetController(1, (controller ? CTL_JOYPAD : CTL_NONE), 1, 0, 0, 0);
+        }
+    }
+}
+
+
 
 - (void)pushSNESButton:(PVSNESButton)button forPlayer:(NSInteger)player
 {

@@ -8,17 +8,7 @@
 
 @class GCControllerDirectionPad;
 
-typedef NS_ENUM(NSUInteger, PVControllerAxisDirection) {
-    PVControllerAxisDirectionNone,
-    PVControllerAxisDirectionUp,
-    PVControllerAxisDirectionDown,
-    PVControllerAxisDirectionLeft,
-    PVControllerAxisDirectionRight,
-    PVControllerAxisDirectionUpRight,
-    PVControllerAxisDirectionUpLeft,
-    PVControllerAxisDirectionDownRight,
-    PVControllerAxisDirectionDownLeft
-};
+#import "PVControllerAxisDirection.h"
 
 @interface PVGameControllerUtilities : NSObject
 + (PVControllerAxisDirection)axisDirectionForThumbstick:(GCControllerDirectionPad *)thumbstick;

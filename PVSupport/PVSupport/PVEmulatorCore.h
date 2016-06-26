@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "OERingBuffer.h"
-#import <GameController/GameController.h>
+#import "PVController.h"
 
 @interface PVEmulatorCore : NSObject {
 	
@@ -39,8 +39,7 @@ typedef NS_ENUM(NSInteger, GameSpeed) {
 @property (nonatomic, assign) GameSpeed gameSpeed;
 @property (nonatomic, readonly, getter=isSpeedModified) BOOL speedModified;
 
-@property (nonatomic, strong) GCController *controller1;
-@property (nonatomic, strong) GCController *controller2;
+@property (nonatomic, strong) NSArray *controllers; // id<PVController>
 
 - (void)startEmulation;
 - (void)resetEmulation;

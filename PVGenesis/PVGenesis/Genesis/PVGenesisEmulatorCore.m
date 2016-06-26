@@ -77,28 +77,13 @@ static int16_t input_state_callback(unsigned port, unsigned device, unsigned ind
 	__strong PVGenesisEmulatorCore *strongCurrent = _current;
     int16_t value = 0;
 
-    if (port == 0 & device == RETRO_DEVICE_JOYPAD)
+    if (device == RETRO_DEVICE_JOYPAD)
 	{
-        if (strongCurrent.controller1)
-        {
-            value = [strongCurrent controllerValueForButtonID:_id forPlayer:port];
-        }
+        value = [strongCurrent controllerValueForButtonID:_id forPlayer:port];
 
         if (value == 0)
         {
-            value = strongCurrent->_pad[0][_id];
-        }
-	}
-	else if(port == 1 & device == RETRO_DEVICE_JOYPAD)
-	{
-        if (strongCurrent.controller2)
-        {
-            value = [strongCurrent controllerValueForButtonID:_id forPlayer:port];
-        }
-
-        if (value == 0)
-        {
-            value = strongCurrent->_pad[1][_id];
+            value = strongCurrent->_pad[port][_id];
         }
 	}
 	
@@ -348,106 +333,45 @@ static bool environment_callback(unsigned cmd, void *data)
 
 - (NSInteger)controllerValueForButtonID:(unsigned)buttonID forPlayer:(NSInteger)player
 {
-    GCController *controller = nil;
-
-    if (player == 0)
-    {
-        controller = self.controller1;
+    id<PVController> controller = nil;
+    if (player==0) {
+        controller = self.controllers.firstObject;
+    } else if (player==1 && self.controllers.count>1) {
+        controller = self.controllers.lastObject;
     }
-    else
+    
+    if (controller)
     {
-        controller = self.controller2;
-    }
-
-    if ([controller extendedGamepad])
-    {
-        GCExtendedGamepad *pad = [controller extendedGamepad];
-        GCControllerDirectionPad *dpad = [pad dpad];
+        PVControllerState *state = [controller controllerState];
+        PVControllerAxisDirection dpad = state.dPadDirection;
+        BOOL isMicro = (state.buttonB == nil);
         switch (buttonID) {
             case PVGenesisButtonUp:
-                return [[dpad up] isPressed]?:[[[pad leftThumbstick] up] isPressed];
+                return (dpad == PVControllerAxisDirectionUp    || dpad == PVControllerAxisDirectionUpLeft   || dpad == PVControllerAxisDirectionUpRight);
             case PVGenesisButtonDown:
-                return [[dpad down] isPressed]?:[[[pad leftThumbstick] down] isPressed];
+                return (dpad == PVControllerAxisDirectionDown  || dpad == PVControllerAxisDirectionDownLeft || dpad == PVControllerAxisDirectionDownRight);
             case PVGenesisButtonLeft:
-                return [[dpad left] isPressed]?:[[[pad leftThumbstick] left] isPressed];
+                return (dpad == PVControllerAxisDirectionLeft  || dpad == PVControllerAxisDirectionUpLeft   || dpad == PVControllerAxisDirectionDownLeft);
             case PVGenesisButtonRight:
-                return [[dpad right] isPressed]?:[[[pad leftThumbstick] right] isPressed];
+                return (dpad == PVControllerAxisDirectionRight || dpad == PVControllerAxisDirectionUpRight  || dpad == PVControllerAxisDirectionDownRight);
             case PVGenesisButtonA:
-                return [[pad buttonX] isPressed];
+                return isMicro ? state.buttonA.isPressed : state.buttonX.isPressed;
             case PVGenesisButtonB:
-                return [[pad buttonA] isPressed];
+                return isMicro ? state.buttonX.isPressed : state.buttonA.isPressed;
             case PVGenesisButtonC:
-                return [[pad buttonB] isPressed];
+                return state.buttonB.isPressed;
             case PVGenesisButtonX:
-                return [[pad leftShoulder] isPressed];
+                return state.leftShoulder.isPressed;
             case PVGenesisButtonY:
-                return [[pad buttonY] isPressed];
+                return state.buttonY.isPressed;
             case PVGenesisButtonZ:
-                return [[pad rightShoulder] isPressed];
+                return state.rightShoulder.isPressed;
             case PVGenesisButtonStart:
-                return [[pad leftTrigger] isPressed];
+                return state.leftTrigger.isPressed;
             default:
                 break;
         }
     }
-    else if ([controller gamepad])
-    {
-        GCGamepad *pad = [controller gamepad];
-        GCControllerDirectionPad *dpad = [pad dpad];
-        switch (buttonID) {
-            case PVGenesisButtonUp:
-                return [[dpad up] isPressed];
-            case PVGenesisButtonDown:
-                return [[dpad down] isPressed];
-            case PVGenesisButtonLeft:
-                return [[dpad left] isPressed];
-            case PVGenesisButtonRight:
-                return [[dpad right] isPressed];
-            case PVGenesisButtonA:
-                return [[pad buttonX] isPressed];
-            case PVGenesisButtonB:
-                return [[pad buttonA] isPressed];
-            case PVGenesisButtonC:
-                return [[pad buttonB] isPressed];
-            case PVGenesisButtonX:
-                return [[pad leftShoulder] isPressed];
-            case PVGenesisButtonY:
-                return [[pad buttonY] isPressed];
-            case PVGenesisButtonZ:
-                return [[pad rightShoulder] isPressed];
-            default:
-                break;
-        }
-    }
-#if TARGET_OS_TV
-    else if ([controller microGamepad])
-    {
-        GCMicroGamepad *pad = [controller microGamepad];
-        GCControllerDirectionPad *dpad = [pad dpad];
-        switch (buttonID) {
-            case PVGenesisButtonUp:
-                return [[dpad up] value] > 0.5;
-                break;
-            case PVGenesisButtonDown:
-                return [[dpad down] value] > 0.5;
-                break;
-            case PVGenesisButtonLeft:
-                return [[dpad left] value] > 0.5;
-                break;
-            case PVGenesisButtonRight:
-                return [[dpad right] value] > 0.5;
-                break;
-            case PVGenesisButtonA:
-                return [[pad buttonA] isPressed];
-                break;
-            case PVGenesisButtonB:
-                return [[pad buttonX] isPressed];
-                break;
-            default:
-                break;
-        }
-    }
-#endif
 
     return 0;
 }

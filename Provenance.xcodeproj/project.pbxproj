@@ -223,6 +223,8 @@
 		424AF6351D1729D9004A4C0D /* VirtualGameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424AF6341D1729D9004A4C0D /* VirtualGameController.framework */; };
 		424AF6361D172A0F004A4C0D /* VirtualGameController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 424AF6341D1729D9004A4C0D /* VirtualGameController.framework */; };
 		424AF6371D172A0F004A4C0D /* VirtualGameController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 424AF6341D1729D9004A4C0D /* VirtualGameController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		428F75461D1FF2BA0085B432 /* GCController+PVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F75451D1FF2BA0085B432 /* GCController+PVController.m */; };
+		428F75471D1FF2BA0085B432 /* GCController+PVController.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F75451D1FF2BA0085B432 /* GCController+PVController.m */; };
 		42AAFC861D1706E800A81366 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC851D1706E800A81366 /* main.m */; };
 		42AAFC891D1706E800A81366 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC881D1706E800A81366 /* AppDelegate.m */; };
 		42AAFC8C1D1706E800A81366 /* PVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 42AAFC8B1D1706E800A81366 /* PVMainViewController.m */; };
@@ -536,6 +538,8 @@
 		424AF62A1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVEmulatorSystemsConfiguration.h; sourceTree = "<group>"; };
 		424AF62B1D171DAF004A4C0D /* PVEmulatorSystemsConfiguration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVEmulatorSystemsConfiguration.m; sourceTree = "<group>"; };
 		424AF6341D1729D9004A4C0D /* VirtualGameController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VirtualGameController.framework; path = Carthage/Build/iOS/VirtualGameController.framework; sourceTree = SOURCE_ROOT; };
+		428F75441D1FF2BA0085B432 /* GCController+PVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GCController+PVController.h"; sourceTree = "<group>"; };
+		428F75451D1FF2BA0085B432 /* GCController+PVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GCController+PVController.m"; sourceTree = "<group>"; };
 		42AAFC821D1706E800A81366 /* ProvenanceController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProvenanceController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AAFC851D1706E800A81366 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		42AAFC871D1706E800A81366 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -848,6 +852,8 @@
 				1A47C96417BC310700C27644 /* JSDPad.m */,
 				42AAFC9A1D1707AB00A81366 /* PVControllerLayoutViewController.h */,
 				42AAFC9B1D1707AB00A81366 /* PVControllerLayoutViewController.m */,
+				428F75441D1FF2BA0085B432 /* GCController+PVController.h */,
+				428F75451D1FF2BA0085B432 /* GCController+PVController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -1548,6 +1554,7 @@
 				1AACCAE91BB615FE00DC21AE /* PVSynchronousURLSession.m in Sources */,
 				378F4A0E1B63D7CD0065FA39 /* GCDWebUploader.m in Sources */,
 				E4F9369D1B50BF3B009403C5 /* PViCadeControllerViewController.m in Sources */,
+				428F75461D1FF2BA0085B432 /* GCController+PVController.m in Sources */,
 				E414488B1B3125D90056D80A /* iCadeReaderView.m in Sources */,
 				42BC83A917E6775E00E9A607 /* PVGameLibrarySectionHeaderView.m in Sources */,
 				1A52098C1BADD4F900DAE6E3 /* PVControllerSelectionViewController.m in Sources */,
@@ -1672,6 +1679,7 @@
 				1AD481D51BA3542A00FDA50A /* GCDWebUploader.m in Sources */,
 				BE1E26681C2252CA00499BA0 /* PVEmulatorConstants.m in Sources */,
 				25A64E181CB1C57900EDD19D /* UIImage+Color.m in Sources */,
+				428F75471D1FF2BA0085B432 /* GCController+PVController.m in Sources */,
 				1AD481F61BA3549F00FDA50A /* UIImage+ImageEffects.m in Sources */,
 				1AD481FA1BA354B100FDA50A /* PViCadeGamepad.m in Sources */,
 				1AD481DD1BA3544800FDA50A /* GCDWebServerFileRequest.m in Sources */,

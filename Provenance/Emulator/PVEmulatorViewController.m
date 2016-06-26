@@ -21,6 +21,7 @@
 #import <QuartzCore/QuartzCore.h>
 #import "PVEmulatorConfiguration.h"
 #import "PVControllerManager.h"
+#import "GCController+PVController.h"
 
 @interface PVEmulatorViewController ()
 
@@ -147,8 +148,7 @@ void uncaughtExceptionHandler(NSException *exception)
     [self.emulatorCore setSaveStatesPath:[self saveStatePath]];
 	[self.emulatorCore setBatterySavesPath:[self batterySavesPath]];
     [self.emulatorCore setBIOSPath:self.BIOSPath];
-    [self.emulatorCore setController1:[[PVControllerManager sharedManager] player1]];
-    [self.emulatorCore setController2:[[PVControllerManager sharedManager] player2]];
+    [self.emulatorCore setControllers:[[PVControllerManager sharedManager] sortedControllers]];
 	
 	self.glViewController = [[PVGLViewController alloc] initWithEmulatorCore:self.emulatorCore];
 
@@ -390,65 +390,43 @@ void uncaughtExceptionHandler(NSException *exception)
 #if TARGET_OS_TV
             self.controllerUserInteractionEnabled = NO;
 #endif
-		}]];
+        }]];
     }
-
+    
 #if TARGET_OS_TV
     PVControllerManager *controllerManager = [PVControllerManager sharedManager];
-    if (![[controllerManager player1] extendedGamepad])
-    {
-        // left trigger bound to Start
-        // right trigger bound to Select
-        [actionsheet addAction:[UIAlertAction actionWithTitle:@"P1 Start" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [weakSelf.emulatorCore setPauseEmulation:NO];
-            weakSelf.isShowingMenu = NO;
-            [weakSelf.controllerViewController pressStartForPlayer:0];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.controllerViewController releaseStartForPlayer:0];
-            });
-#if TARGET_OS_TV
-            weakSelf.controllerUserInteractionEnabled = NO;
-#endif
-        }]];
-        [actionsheet addAction:[UIAlertAction actionWithTitle:@"P1 Select" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [weakSelf.emulatorCore setPauseEmulation:NO];
-            weakSelf.isShowingMenu = NO;
-            [weakSelf.controllerViewController pressSelectForPlayer:0];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.controllerViewController releaseSelectForPlayer:0];
-            });
-#if TARGET_OS_TV
-            weakSelf.controllerUserInteractionEnabled = NO;
-#endif
-        }]];
-    }
-    if (![[controllerManager player2] extendedGamepad])
-    {
-        [actionsheet addAction:[UIAlertAction actionWithTitle:@"P2 Start" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [weakSelf.emulatorCore setPauseEmulation:NO];
-            weakSelf.isShowingMenu = NO;
-            [weakSelf.controllerViewController pressStartForPlayer:1];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.controllerViewController releaseStartForPlayer:1];
-            });
-#if TARGET_OS_TV
-            weakSelf.controllerUserInteractionEnabled = NO;
-#endif
-        }]];
-        [actionsheet addAction:[UIAlertAction actionWithTitle:@"P2 Select" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-            [weakSelf.emulatorCore setPauseEmulation:NO];
-            weakSelf.isShowingMenu = NO;
-            [weakSelf.controllerViewController pressSelectForPlayer:1];
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                [weakSelf.controllerViewController releaseSelectForPlayer:1];
-            });
-#if TARGET_OS_TV
-            weakSelf.controllerUserInteractionEnabled = NO;
-#endif
-        }]];
+    NSArray *controllers = [controllerManager sortedControllers];
+    
+    for (id<PVController> controller in controllers) {
+        if (![controller supportsStartSelect])
+        {
+            NSUInteger playerNumber = [controller playerNumber];
+            NSString *player = [NSString stringWithFormat:@"P%lu", (unsigned long)playerNumber+1];
+            // left trigger bound to Start
+            // right trigger bound to Select
+            [actionsheet addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%@ Start", player] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [weakSelf.emulatorCore setPauseEmulation:NO];
+                weakSelf.isShowingMenu = NO;
+                [weakSelf.controllerViewController pressStartForPlayer:playerNumber];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakSelf.controllerViewController releaseStartForPlayer:playerNumber];
+                });
+                weakSelf.controllerUserInteractionEnabled = NO;
+            }]];
+            [actionsheet addAction:[UIAlertAction actionWithTitle:[NSString stringWithFormat:@"%@ Select", player] style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+                [weakSelf.emulatorCore setPauseEmulation:NO];
+                weakSelf.isShowingMenu = NO;
+                [weakSelf.controllerViewController pressSelectForPlayer:playerNumber];
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                    [weakSelf.controllerViewController releaseSelectForPlayer:playerNumber];
+                });
+                weakSelf.controllerUserInteractionEnabled = NO;
+            }]];
+        }
     }
 #endif
-
+    
+    
     if ([self.emulatorCore supportsDiskSwapping])
     {
         [actionsheet addAction:[UIAlertAction actionWithTitle:@"Swap Disk" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -730,8 +708,7 @@ void uncaughtExceptionHandler(NSException *exception)
 
 - (void)handleControllerManagerControllerReassigned:(NSNotification *)notification
 {
-	self.emulatorCore.controller1 = [[PVControllerManager sharedManager] player1];
-	self.emulatorCore.controller2 = [[PVControllerManager sharedManager] player2];
+    [self.emulatorCore setControllers:[[PVControllerManager sharedManager] sortedControllers]];
 }
 
 #pragma mark - UIScreenNotifications

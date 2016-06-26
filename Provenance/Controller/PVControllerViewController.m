@@ -60,8 +60,9 @@
 - (void)refreshControllerVisibility;
 {
     if ([[PVControllerManager sharedManager] hasControllers]) {
-        [self hideTouchControls:YES forController:[[PVControllerManager sharedManager] player1]];
-        [self hideTouchControls:YES forController:[[PVControllerManager sharedManager] player2]];
+        for (GCController *controller in [[PVControllerManager sharedManager] sortedControllers]) {
+            [self hideTouchControls:YES forController:controller];
+        }
     } else {
         [self hideTouchControls:NO forController:nil];
     }

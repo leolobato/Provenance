@@ -138,7 +138,7 @@ static __weak PVNESEmulatorCore *_current;
     pXBuf = 0;
     soundSize = 0;
 
-	if (self.controller1 || self.controller2)
+	if (self.controllers.count>0)
 	{
 		[self updateControllers];
 	}
@@ -291,67 +291,24 @@ const int NESMap[] = {JOY_UP, JOY_DOWN, JOY_LEFT, JOY_RIGHT, JOY_A, JOY_B, JOY_S
 
 - (void)updateControllers
 {
-    for (NSInteger playerIndex = 0; playerIndex < 2; playerIndex++)
+    for (NSInteger playerIndex = 0; playerIndex < 2 && playerIndex < self.controllers.count; playerIndex++)
     {
-        GCController *controller = nil;
+        id<PVController> controller = self.controllers[playerIndex];
+        PVControllerState *state = [controller controllerState];
+        PVControllerAxisDirection dpad = state.dPadDirection;
+        
         int playerShift = playerIndex != 0 ? 8: 0;
 
-        if (self.controller1 && playerIndex == 0)
-        {
-            controller = self.controller1;
-        }
-        else if (self.controller2 && playerIndex == 1)
-        {
-            controller = self.controller2;
-        }
-
-        if ([controller extendedGamepad])
-        {
-            GCExtendedGamepad *gamepad = [controller extendedGamepad];
-            GCControllerDirectionPad *dpad = [gamepad dpad];
-
-            (dpad.up.isPressed || gamepad.leftThumbstick.up.isPressed) ? pad[playerIndex][0] |= JOY_UP << playerShift : pad[playerIndex][0] &= ~JOY_UP << playerShift;
-            (dpad.down.isPressed || gamepad.leftThumbstick.down.isPressed) ? pad[playerIndex][0] |= JOY_DOWN << playerShift : pad[playerIndex][0] &= ~JOY_DOWN << playerShift;
-            (dpad.left.isPressed || gamepad.leftThumbstick.left.isPressed) ? pad[playerIndex][0] |= JOY_LEFT << playerShift : pad[playerIndex][0] &= ~JOY_LEFT << playerShift;
-            (dpad.right.isPressed || gamepad.leftThumbstick.right.isPressed) ? pad[playerIndex][0] |= JOY_RIGHT << playerShift : pad[playerIndex][0] &= ~JOY_RIGHT << playerShift;
-
-            (gamepad.buttonX.isPressed || gamepad.buttonY.isPressed) ? pad[playerIndex][0] |= JOY_B << playerShift : pad[playerIndex][0] &= ~JOY_B << playerShift;
-            (gamepad.buttonA.isPressed || gamepad.buttonB.isPressed) ? pad[playerIndex][0] |= JOY_A << playerShift : pad[playerIndex][0] &= ~JOY_A << playerShift;
-
-            (gamepad.leftShoulder.isPressed || gamepad.leftTrigger.isPressed) ? pad[playerIndex][0] |= JOY_START << playerShift : pad[playerIndex][0] &= ~JOY_START << playerShift;
-            (gamepad.rightShoulder.isPressed || gamepad.rightTrigger.isPressed) ? pad[playerIndex][0] |= JOY_SELECT << playerShift : pad[playerIndex][0] &= ~JOY_SELECT << playerShift;
-        }
-        else if ([controller gamepad])
-        {
-            GCGamepad *gamepad = [controller gamepad];
-            GCControllerDirectionPad *dpad = [gamepad dpad];
-
-            dpad.up.isPressed ? pad[playerIndex][0] |= JOY_UP << playerShift : pad[playerIndex][0] &= ~JOY_UP << playerShift;
-            dpad.down.isPressed ? pad[playerIndex][0] |= JOY_DOWN << playerShift : pad[playerIndex][0] &= ~JOY_DOWN << playerShift;
-            dpad.left.isPressed ? pad[playerIndex][0] |= JOY_LEFT << playerShift : pad[playerIndex][0] &= ~JOY_LEFT << playerShift;
-            dpad.right.isPressed ? pad[playerIndex][0] |= JOY_RIGHT << playerShift : pad[playerIndex][0] &= ~JOY_RIGHT << playerShift;
-
-            (gamepad.buttonX.isPressed || gamepad.buttonY.isPressed) ? pad[playerIndex][0] |= JOY_B << playerShift : pad[playerIndex][0] &= ~JOY_B << playerShift;
-            (gamepad.buttonA.isPressed || gamepad.buttonB.isPressed) ? pad[playerIndex][0] |= JOY_A << playerShift : pad[playerIndex][0] &= ~JOY_A << playerShift;
-
-            gamepad.leftShoulder.isPressed ? pad[playerIndex][0] |= JOY_START << playerShift : pad[playerIndex][0] &= ~JOY_START << playerShift;
-            gamepad.rightShoulder.isPressed ? pad[playerIndex][0] |= JOY_SELECT << playerShift : pad[playerIndex][0] &= ~JOY_SELECT << playerShift;
-        }
-#if TARGET_OS_TV
-        else if ([controller microGamepad])
-        {
-            GCMicroGamepad *gamepad = [controller microGamepad];
-            GCControllerDirectionPad *dpad = [gamepad dpad];
-
-            (dpad.up.value > 0.5) ? pad[playerIndex][0] |= JOY_UP << playerShift : pad[playerIndex][0] &= ~JOY_UP << playerShift;
-            (dpad.down.value > 0.5) ? pad[playerIndex][0] |= JOY_DOWN << playerShift : pad[playerIndex][0] &= ~JOY_DOWN << playerShift;
-            (dpad.left.value > 0.5) ? pad[playerIndex][0] |= JOY_LEFT << playerShift : pad[playerIndex][0] &= ~JOY_LEFT << playerShift;
-            (dpad.right.value > 0.5) ? pad[playerIndex][0] |= JOY_RIGHT << playerShift : pad[playerIndex][0] &= ~JOY_RIGHT << playerShift;
-
-            gamepad.buttonA.isPressed ? pad[playerIndex][0] |= JOY_B << playerShift : pad[playerIndex][0] &= ~JOY_B << playerShift;
-            gamepad.buttonX.isPressed ? pad[playerIndex][0] |= JOY_A << playerShift : pad[playerIndex][0] &= ~JOY_A << playerShift;
-        }
-#endif
+        (dpad == PVControllerAxisDirectionUp    || dpad == PVControllerAxisDirectionUpLeft   || dpad == PVControllerAxisDirectionUpRight)   ? pad[playerIndex][0] |= JOY_UP << playerShift : pad[playerIndex][0] &= ~JOY_UP << playerShift;
+        (dpad == PVControllerAxisDirectionDown  || dpad == PVControllerAxisDirectionDownLeft || dpad == PVControllerAxisDirectionDownRight) ? pad[playerIndex][0] |= JOY_DOWN << playerShift : pad[playerIndex][0] &= ~JOY_DOWN << playerShift;
+        (dpad == PVControllerAxisDirectionLeft  || dpad == PVControllerAxisDirectionUpLeft   || dpad == PVControllerAxisDirectionDownLeft)  ? pad[playerIndex][0] |= JOY_LEFT << playerShift : pad[playerIndex][0] &= ~JOY_LEFT << playerShift;
+        (dpad == PVControllerAxisDirectionRight || dpad == PVControllerAxisDirectionUpRight  || dpad == PVControllerAxisDirectionDownRight) ? pad[playerIndex][0] |= JOY_RIGHT << playerShift : pad[playerIndex][0] &= ~JOY_RIGHT << playerShift;
+        
+        (state.buttonX.isPressed || state.buttonY.isPressed) ? pad[playerIndex][0] |= JOY_B << playerShift : pad[playerIndex][0] &= ~JOY_B << playerShift;
+        (state.buttonA.isPressed || state.buttonB.isPressed) ? pad[playerIndex][0] |= JOY_A << playerShift : pad[playerIndex][0] &= ~JOY_A << playerShift;
+        
+        (state.leftShoulder.isPressed || state.leftTrigger.isPressed) ? pad[playerIndex][0] |= JOY_START << playerShift : pad[playerIndex][0] &= ~JOY_START << playerShift;
+        (state.rightShoulder.isPressed || state.rightTrigger.isPressed) ? pad[playerIndex][0] |= JOY_SELECT << playerShift : pad[playerIndex][0] &= ~JOY_SELECT << playerShift;
     }
 }
 

@@ -15,6 +15,8 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
 
 @interface PVControllerManager ()
 
+@property (nonatomic, strong) NSMutableDictionary<NSString *, GCController *> *controllers; // key: Player / value: Controller
+
 @end
 
 @implementation PVControllerManager
@@ -46,6 +48,8 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
                                                  selector:@selector(handleControllerDidDisconnect:)
                                                      name:GCControllerDidDisconnectNotification
                                                    object:nil];
+        
+        self.controllers = [[NSMutableDictionary alloc] initWithCapacity:2];
 
         // automatically assign the first connected controller to player 1
         // prefer gamepad or extendedGamepad over a microGamepad
@@ -64,19 +68,25 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
     return self;
 }
 
-- (void)setPlayer1:(GCController *)player1
+- (NSArray *)sortedControllers;
 {
-    [self setController:player1 toPlayer:1];
+    NSMutableArray *controllers = [[NSMutableArray alloc] initWithCapacity:self.controllers.count];
+    
+    NSArray *players = [[self.controllers allKeys] sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
+    for (NSString *player in players) {
+        [controllers addObject:[self.controllers objectForKey:player]];
+    }
+    return controllers;
 }
 
-- (void)setPlayer2:(GCController *)player2
+- (NSInteger)maxControllers;
 {
-    [self setController:player2 toPlayer:2];
+    return 2;
 }
 
 - (BOOL)hasControllers
 {
-    return (self.player1) || (self.player2);
+    return self.controllers.count>0;
 }
 
 - (void)refreshiCadeControllerListener;
@@ -97,13 +107,11 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
     GCController *controller = [note object];
     NSLog(@"Controller disconnected: %@", [controller vendorName]);
 
-    if (controller == self.player1)
-    {
-        self.player1 = nil;
-    }
-    if (controller == self.player2)
-    {
-        self.player2 = nil;
+    for (NSString *player in self.controllers.allKeys) {
+        if ([self.controllers objectForKey:player]==controller) {
+            [self.controllers removeObjectForKey:player];
+            break;
+        }
     }
     
     // Reassign any controller which we are unassigned
@@ -137,11 +145,11 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
     
     controller.playerIndex = (player-1);
     
-    // TODO: keep an array of players/controllers we support more than 2 players
-    if (player==1) {
-        _player1 = controller;
-    } else if (player==2) {
-        _player2 = controller;
+    NSString *key = [[NSNumber numberWithUnsignedInteger:player] stringValue];
+    if (controller) {
+        [self.controllers setObject:controller forKey:key];
+    } else {
+        [self.controllers removeObjectForKey:key];
     }
     
     if (controller) {
@@ -149,15 +157,9 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
     }
 }
 
-- (GCController *)controllerForPlayer:(NSUInteger)player;
+- (GCController *)controllerForPlayer:(NSInteger)player;
 {
-    if (player==1) {
-        return self.player1;
-    } else if (player==2) {
-        return self.player2;
-    } else {
-        return nil;
-    }
+    return [self.controllers objectForKey:[[NSNumber numberWithUnsignedInteger:player] stringValue]];
 }
 
 - (BOOL)assignControllers;
@@ -168,8 +170,9 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
     }
     
     BOOL assigned = NO;
+    NSArray *alreadyAssigned = [self sortedControllers];
     for (GCController *controller in controllers) {
-        if (self.player1 != controller && self.player2 != controller) {
+        if (![alreadyAssigned containsObject:controller]) {
             assigned = assigned || [self assignController:controller];
         }
     }
@@ -180,7 +183,7 @@ NSString * const PVControllerManagerControllerReassignedNotification = @"PVContr
 {
     // Assign the controller to the first player without a controller assigned, or
     // if this is an extended controller, replace the first controller which is not extended (the Siri remote on tvOS).
-    for (NSUInteger i = 1; i<=2; i++) {
+    for (NSUInteger i = 1; i<=[self maxControllers]; i++) {
         GCController *previouslyAssignedController = [self controllerForPlayer:i];
         if (!previouslyAssignedController || (controller.extendedGamepad && !previouslyAssignedController.extendedGamepad)) {
             [self setController:controller toPlayer:i];

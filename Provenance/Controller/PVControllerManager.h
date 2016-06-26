@@ -17,8 +17,12 @@ extern NSString * const PVControllerManagerControllerReassignedNotification;
 
 + (PVControllerManager *)sharedManager;
 
-@property (nonatomic, strong) GCController *player1;
-@property (nonatomic, strong) GCController *player2;
+- (GCController *)controllerForPlayer:(NSInteger)player; // 1-Based
+- (void)setController:(GCController *)controller toPlayer:(NSUInteger)player;
+- (NSArray *)sortedControllers; // id<PVController>
+
+- (NSInteger)maxControllers;
+
 @property (nonatomic, strong) PViCadeController *iCadeController;
 
 - (BOOL)hasControllers;

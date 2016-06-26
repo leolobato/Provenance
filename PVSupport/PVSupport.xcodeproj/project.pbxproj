@@ -33,6 +33,10 @@
 		1AD4BC711BFD3920007D6C7C /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AD4BC701BFD3920007D6C7C /* AVFoundation.framework */; };
 		25A64E131CB1BBEB00EDD19D /* PVGameControllerUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A64E121CB1BBEB00EDD19D /* PVGameControllerUtilities.m */; };
 		25A64E141CB1BDBA00EDD19D /* PVGameControllerUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A64E121CB1BBEB00EDD19D /* PVGameControllerUtilities.m */; };
+		428F754B1D200D270085B432 /* PVControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F754A1D200D270085B432 /* PVControllerState.m */; };
+		428F754C1D200D270085B432 /* PVControllerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F754A1D200D270085B432 /* PVControllerState.m */; };
+		428F754F1D200D690085B432 /* PVButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F754E1D200D690085B432 /* PVButtonState.m */; };
+		428F75501D200D690085B432 /* PVButtonState.m in Sources */ = {isa = PBXBuildFile; fileRef = 428F754E1D200D690085B432 /* PVButtonState.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -83,6 +87,12 @@
 		1AD4BC701BFD3920007D6C7C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		25A64E111CB1BBEB00EDD19D /* PVGameControllerUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVGameControllerUtilities.h; sourceTree = "<group>"; };
 		25A64E121CB1BBEB00EDD19D /* PVGameControllerUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVGameControllerUtilities.m; sourceTree = "<group>"; };
+		428F753E1D1FDE7B0085B432 /* PVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVController.h; sourceTree = "<group>"; };
+		428F75431D1FEBAA0085B432 /* PVControllerAxisDirection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PVControllerAxisDirection.h; sourceTree = "<group>"; };
+		428F75491D200D270085B432 /* PVControllerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVControllerState.h; sourceTree = "<group>"; };
+		428F754A1D200D270085B432 /* PVControllerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVControllerState.m; sourceTree = "<group>"; };
+		428F754D1D200D690085B432 /* PVButtonState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PVButtonState.h; sourceTree = "<group>"; };
+		428F754E1D200D690085B432 /* PVButtonState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PVButtonState.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -161,6 +171,7 @@
 		1ACEA64917F7467D0031B1C9 /* PVSupport */ = {
 			isa = PBXGroup;
 			children = (
+				428F75481D200D180085B432 /* Controller */,
 				1ACEA6A017F74A5A0031B1C9 /* NSObject+PVAbstractAdditions.h */,
 				1ACEA6A117F74A5A0031B1C9 /* NSObject+PVAbstractAdditions.m */,
 				1ACEA68E17F748F80031B1C9 /* OETimingUtils.h */,
@@ -170,6 +181,7 @@
 				25A64E111CB1BBEB00EDD19D /* PVGameControllerUtilities.h */,
 				25A64E121CB1BBEB00EDD19D /* PVGameControllerUtilities.m */,
 				1ACEA64A17F7467D0031B1C9 /* Supporting Files */,
+				428F75431D1FEBAA0085B432 /* PVControllerAxisDirection.h */,
 			);
 			path = PVSupport;
 			sourceTree = "<group>";
@@ -194,6 +206,18 @@
 			);
 			name = Audio;
 			path = PVSupport/Audio;
+			sourceTree = "<group>";
+		};
+		428F75481D200D180085B432 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				428F753E1D1FDE7B0085B432 /* PVController.h */,
+				428F75491D200D270085B432 /* PVControllerState.h */,
+				428F754A1D200D270085B432 /* PVControllerState.m */,
+				428F754D1D200D690085B432 /* PVButtonState.h */,
+				428F754E1D200D690085B432 /* PVButtonState.m */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,8 +290,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1ACEA69B17F748F80031B1C9 /* TPCircularBuffer.c in Sources */,
+				428F754B1D200D270085B432 /* PVControllerState.m in Sources */,
 				1ACEA69917F748F80031B1C9 /* OEGameAudio.m in Sources */,
 				1ACEA69A17F748F80031B1C9 /* OERingBuffer.m in Sources */,
+				428F754F1D200D690085B432 /* PVButtonState.m in Sources */,
 				1ACEA6A217F74A5A0031B1C9 /* NSObject+PVAbstractAdditions.m in Sources */,
 				1ACEA69C17F748F80031B1C9 /* OETimingUtils.m in Sources */,
 				25A64E131CB1BBEB00EDD19D /* PVGameControllerUtilities.m in Sources */,
@@ -280,8 +306,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				1AD4823D1BA363A400FDA50A /* TPCircularBuffer.c in Sources */,
+				428F754C1D200D270085B432 /* PVControllerState.m in Sources */,
 				25A64E141CB1BDBA00EDD19D /* PVGameControllerUtilities.m in Sources */,
 				1AD4823E1BA363A400FDA50A /* OEGameAudio.m in Sources */,
+				428F75501D200D690085B432 /* PVButtonState.m in Sources */,
 				1AD4823F1BA363A400FDA50A /* OERingBuffer.m in Sources */,
 				1AD482401BA363A400FDA50A /* NSObject+PVAbstractAdditions.m in Sources */,
 				1AD482411BA363A400FDA50A /* OETimingUtils.m in Sources */,

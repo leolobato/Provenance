@@ -61,38 +61,26 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return [[PVControllerManager sharedManager] maxControllers];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"controllerCell"];
-
-    if ([indexPath row] == 0)
+    
+    NSInteger player = [indexPath row] + 1;
+    
+    [cell.textLabel setText:[NSString stringWithFormat:@"Player %@", [NSNumber numberWithInteger:player]]];
+    GCController *controller = [[PVControllerManager sharedManager] controllerForPlayer:player];
+    if (controller)
     {
-        [cell.textLabel setText:@"Player 1"];
-        if ([[PVControllerManager sharedManager] player1])
-        {
-            [cell.detailTextLabel setText:[[[PVControllerManager sharedManager] player1] vendorName]];
-        }
-        else
-        {
-            [cell.detailTextLabel setText:@"None Selected"];
-        }
+        [cell.detailTextLabel setText:[controller vendorName]];
     }
     else
     {
-        [cell.textLabel setText:@"Player 2"];
-        if ([[PVControllerManager sharedManager] player2])
-        {
-            [cell.detailTextLabel setText:[[[PVControllerManager sharedManager] player2] vendorName]];
-        }
-        else
-        {
-            [cell.detailTextLabel setText:@"None Selected"];
-        }
+        [cell.detailTextLabel setText:@"None Selected"];
     }
-
+    
     return cell;
 }
 
@@ -116,44 +104,27 @@
         [[actionSheet popoverPresentationController] setSourceRect:[self.tableView rectForRowAtIndexPath:indexPath]];
     }
 
+    NSInteger player = [indexPath row]+1;
+    NSArray *assignedControllers = [[PVControllerManager sharedManager] sortedControllers];
     for (GCController *controller in [GCController controllers])
     {
         NSString *title = [controller vendorName];
-        if (controller == [[PVControllerManager sharedManager] player1])
+        if ([assignedControllers containsObject:controller])
         {
-            title = [title stringByAppendingString:@" (Player 1)"];
-        }
-
-        if (controller == [[PVControllerManager sharedManager] player2])
-        {
-            title = [title stringByAppendingString:@" (Player 2)"];
+            title = [title stringByAppendingString:[NSString stringWithFormat:@" (Player %@)", [NSNumber numberWithInteger:controller.playerIndex+1]]];
         }
 
         [actionSheet addAction:[UIAlertAction actionWithTitle:title
                                                         style:UIAlertActionStyleDefault
                                                       handler:^(UIAlertAction * _Nonnull action) {
-                                                          if ([indexPath row] == 0)
-                                                          {
-                                                              [[PVControllerManager sharedManager] setPlayer1:controller];
-                                                          }
-                                                          else if ([indexPath row] == 1)
-                                                          {
-                                                              [[PVControllerManager sharedManager] setPlayer2:controller];
-                                                          }
+                                                          [[PVControllerManager sharedManager] setController:controller toPlayer:player];
 
                                                           [self.tableView reloadData];
                                                       }]];
     }
 
     [actionSheet addAction:[UIAlertAction actionWithTitle:@"Not Playing" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        if ([indexPath row] == 0)
-        {
-            [[PVControllerManager sharedManager] setPlayer1:nil];
-        }
-        else if ([indexPath row] == 1)
-        {
-            [[PVControllerManager sharedManager] setPlayer2:nil];
-        }
+        [[PVControllerManager sharedManager] setController:nil toPlayer:player];
 
         [self.tableView reloadData];
     }]];
